@@ -1,1 +1,148 @@
-hello world
+<!DOCTYPE html>
+<html>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<body>
+  <div id='particles-js'></div>
+
+
+    <div class="wrapper">
+        <div class="container a" id="pirmas"  >
+        <div class="tekstas">
+            <h1>Reikia naujos svetainės?</h1>
+            <p>Atsakykite į žemiau pateiktus klausimus ir mes susisieksime su jumis.</p>
+            <br></br> <button class="button" onclick="start()" id="mygtukas">Pradėti!</button>
+        </div>
+            <img class="telefonas" src="images/iphone.png" alt="iphone">
+          </div>
+        <div class="container two" id="ct">
+            <div class="ss">
+                <div class="tekstas antras">
+                    <h1>Kokios turinio valdymo sistemos pageidautumėte? </h1>
+                    <ul>
+                            <li><a nohref="#" onclick="second()" style="cursor: pointer"><img src="images/wordpress.png" alt="" class="logo" >Wordpress</a></li>
+                            <li><a nohref="#" onclick="second()" style="cursor: pointer"><img src="images/joomla.png" alt="" class="logo">Joomla</li></a>
+                            <li><a nohref="#" onclick="second()" style="cursor: pointer"><img src="images/html.png" alt="" class="logo">HTML/CSS (ne TVS)</li></a>
+                            <li><a nohref="#" onclick="nenoriu()" style="cursor: pointer"><img src="images/x.png" alt="" class="logo">Nenoriu svetainės</li></a>
+                        </ul>
+                </div>
+                  <img src="images/ipad.png" alt="iphone" class="ipad">
+                </div>
+
+                <div class="dead" id="dead">
+                    <div class="tekstas">
+                        <h1>Nenorite svetainės?</h1>
+                        <p>Nieko tokio, supratome Jūsų sprendimą.</p>
+                        <br></br> <button class="button" onclick="prdz()">Į pradžią</button>
+                    </div>
+                        <img src="images/imac.png" alt="iphone" class="macas">
+                </div>
+
+            </div>
+                    <div class="container three" id="last">
+                            <div class="tekstas">
+                                <h1>Patiko? Sudomino? Norite?</h1>
+                                <p>Įveskite savo el. pašto adresą ir mes su jumis susisieksime.</p>
+                                <br></br>
+                                <input type="email" id="email" name="email" placeholder="El. paštas">
+                                <br></br> <a href="#" class="button b">Siųsti!</a>
+                            </div>
+                                <img src="images/mac.png" alt="iphone" class="mac">
+                            </div>
+
+    </div>
+    <script>
+      particlesJS.load('particles-js', 'particles.json',
+      function(){
+        console.log('particles.json loaded...')
+      })
+    </script>
+    <script type ="text/javascript" src="particles.js"></script>
+    <script type ="text/javascript" src="app.js"></script>
+</body>
+<script>
+    var controller = new ScrollMagic.Controller();
+    var scene = new ScrollMagic.Scene({
+      triggerElement: '.ipad'
+    })
+    .setClassToggle('.ipad', 'fadein')
+    .addTo(controller);
+</script>
+
+<script>
+var controller = new ScrollMagic.Controller();
+var scene = new ScrollMagic.Scene({
+  triggerElement: '.mac'
+})
+.setClassToggle('.mac', 'show')
+.addTo(controller);
+</script>
+
+<script>
+var controller = new ScrollMagic.Controller({vertical: false});
+var scene = new ScrollMagic.Scene({
+  triggerElement: '.macas'
+})
+.setClassToggle('.macas', 'fadein')
+.addTo(controller);
+</script>
+
+<script>
+var controller = new ScrollMagic.Controller();
+var scene = new ScrollMagic.Scene({
+  triggerElement: '.telefonas'
+})
+.setClassToggle('.telefonas', 'fade-in')
+.addTo(controller);
+</script>
+
+<script>
+  function start() {
+  document.getElementById('ct').scrollIntoView();
+}
+
+function nenoriu() {
+  document.getElementById('dead').scrollIntoView({inline:"center"});
+
+}
+
+function second() {
+  document.getElementById('last').scrollIntoView();
+}
+
+function prdz() {
+  document.getElementById('pirmas').scrollIntoView({inline:"center"});
+}
+
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+</html>
